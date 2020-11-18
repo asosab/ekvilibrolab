@@ -1,9 +1,9 @@
 {
     "@type": "WebSite",
-    "thumbnail_url": "/imagen/ekvilibro_isotipo_circulo.png",
+    "thumbnail_url": "https://ekvilibrolab.com/imagen/ekvilibro_isotipo_circulo.png",
     "provider_name": "ekvilibroLAB",
-    "author_url": "http://ekvilibroLAB.com",
-    "provider_url": "http://ekvilibroLAB.com",
+    "author_url": "https://ekvilibrolab.com",
+    "provider_url": "https://ekvilibrolab.com",
     "title": "ekvilibroLAB",
     "author_name": "Alejandro Sosa Briceño"
 }

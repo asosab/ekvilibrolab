@@ -3,14 +3,14 @@
     <type>website</type>
     <provider_url>http://ekvilibroLAB.com</provider_url>
     <author_name>Alejandro Sosa Briceño</author_name>
-    <thumbnail_url>/imagen/ekvilibro_isotipo_circulo.png</thumbnail_url>
+    <thumbnail_url>https://ekvilibrolab.com/imagen/ekvilibro_isotipo_circulo.png</thumbnail_url>
     <title>ekvilibroLAB</title>
     <width>600</width>
     <version>1.0</version>
     <thumbnail_height>600</thumbnail_height>
-    <html>&lt;iframe width="600" height="600" src="http://ekvilibroLAB.com" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</html>
+    <html>&lt;iframe width="600" height="600" src="https://ekvilibrolab.com" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</html>
     <thumbnail_width>600</thumbnail_width>
     <height>600</height>
-    <author_url>http://ekvilibroLAB.com</author_url>
+    <author_url>https://ekvilibrolab.com</author_url>
     <provider_name>ekvilibroLAB</provider_name>
 </oembed>
