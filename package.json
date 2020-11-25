@@ -1,0 +1,23 @@
+{
+  "name": "ekvilibrolab",
+  "version": "1.0.0",
+  "description": "ekvilibroLAB Laboratorio de fermentos y conservas. Reincorporando alimentos que nos permiten vivir en equilibrio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asosab/ekvilibrolab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asosab/ekvilibrolab/issues"
+  },
+  "homepage": "https://github.com/asosab/ekvilibrolab#readme",
+  "dependencies": {
+    "terser": "^5.5.0"
+  }
+}
