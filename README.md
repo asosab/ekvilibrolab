@@ -6,4 +6,4 @@ Agregado terser para comprimir js, uso:
         npx terser -c -m -o like_button.min.js -- like_button.js
 
 Agregado babel, vigila la carpeta src:
-        npx babel --watch src --out-dir . --presets react-app/prod
+        npx babel --watch src --out-file js/main.js --presets react-app/prod --source-maps

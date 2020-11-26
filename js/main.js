@@ -26,7 +26,7 @@ var LikeButton = function (_React$Component) {
       var _this2 = this;
 
       if (this.state.liked) {
-        return 'You liked this.';
+        return 'A ti te ha gustado esto';
       }
 
       return React.createElement(
@@ -34,7 +34,7 @@ var LikeButton = function (_React$Component) {
         { onClick: function onClick() {
             return _this2.setState({ liked: true });
           } },
-        'Like'
+        '\xA1Me gusta!'
       );
     }
   }]);
@@ -44,3 +44,5 @@ var LikeButton = function (_React$Component) {
 
 var domContainer = document.querySelector('#like_button_container');
 ReactDOM.render(React.createElement(LikeButton, null), domContainer);
+
+//# sourceMappingURL=main.js.map
