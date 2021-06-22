@@ -1,5 +1,11 @@
 .linkblack {color: #000000;text-decoration: none;}
 
+#cuerpo{
+    height:95%;
+    width: 95%;
+}
+
+
 /**
 * jQuery Loader Plugin.
 *
