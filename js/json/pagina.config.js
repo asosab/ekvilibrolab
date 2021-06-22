@@ -28,7 +28,7 @@ pagina.config = {
 		,{'t':'Feedback','u':'#a=feedback','c':''}
 	]
 	,'cuerpo':[]
-	,'pie':["<p class='text-muted'>ekvilibroLab</p>"]
+//	,'pie':["<p class='text-muted'>ekvilibroLab</p>"]
 }
 
 
