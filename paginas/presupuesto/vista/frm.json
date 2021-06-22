@@ -1,0 +1,49 @@
+{
+	"nombre":"Presupuesto"
+	,"id":"frmpresupuesto"
+	,"tipo":"frm"
+	,"campos":[
+		{"nombre":"Datos personales", "tipo":"fset", "l":[
+			 {"tipo":"text", 	"req":1, "label":0, "max":80,	"min":2, 	"id":"nombre",		"nombre":"Nombre(s)"}
+			,{"tipo":"text", 	"req":1, "label":0, "max":80,	"min":2, 	"id":"apellido",	"nombre":"Apellido(s)"}
+			,{"tipo":"text", 	"req":1, "label":0, "max":20,		"min":8, 	"id":"cedula",		"nombre":"Documento de identidad"}
+			,{"tipo":"tel", 	"req":1, "label":0, 											"id":"cel",				"nombre":"Número móvil"}
+			,{"tipo":"email", "req":1, "label":0, 											"id":"email",			"nombre":"Correo electrónico"}
+			,{"tipo":"opt", 	"req":1, "label":0, 											"id":"genero",		"nombre":"Género", "opt":{"Mujer":1,"Hombre":2,"Otro":3}}
+		]}
+		,{"nombre":"Datos del Servicio", "tipo":"fset", "l":[
+			{"tipo":"select", 	"req":1, "label":1,													"id":"tsesion",		"nombre":"Tipo de sesión", "opt":{
+				"Retrato":"Retrato"
+			 	,"Sesión una persona":"Sesión una persona"
+			 	,"Sesión dos o mas personas":"Sesión dos o mas personas"
+			 	,"Boda (previos, iglesia, recepción y fiesta)":"Boda (previos, iglesia, recepción y fiesta)"
+			 	,"Boda (Solo iglesia)":"Boda (Solo iglesia)"
+			 	,"Boda (Solo recepción)":"Boda (Solo recepción)"
+			 	,"Reportero gráfico":"Reportero gráfico"
+				}
+			}
+			,{"tipo":"number", 	"req":1, "label":1, "value":4, 	"min":2,	"id":"horas",			"nombre":"Cantidad de horas"}
+			,{"tipo":"number", 	"req":1, "label":1, "value":40, "min":20,	"id":"tfotos",		"nombre":"Número aproximado de fotos", 		"readonly":1}
+			,{"tipo":"number", 	"req":1, "label":1, "value":1, 	"max":4,	"id":"asistentes","nombre":"Número de asistentes", 					"readonly":1}
+			,{"tipo":"number", 	"req":1, "label":1, "value":10, 					"id":"fotoscarta","nombre":"Fotos Impresas tamaño carta"}
+			,{"tipo":"opt", 		"req":1, "label":1, 						"max":1,	"id":"endigital",	"nombre":"Entregadas en digital", 				"opt":{"Si":1, "No":0}}
+			,{"tipo":"opt", 		"req":1, "label":1, 						"max":1,	"id":"blurb",			"nombre":"Creación de álbum en Blurb", 		"opt":{"Si":1, "No":0}}
+		]}
+		,{"nombre":"Sitio de la pauta", "tipo":"fset", "l":[
+			 {"tipo":"opt", 		"req":1, "label":1, "value":1,						"id":"estudio",		"nombre":"Estudio del fotógrafo", 			"opt":{"Si":1, "No":0}}
+			,{"tipo":"select", 	"req":1, "label":1,												"id":"pais",			"nombre":"País", 				"opt":{} ,"sif":{"estudio":[0]},"hif":{"estudio":[1]}}
+			,{"tipo":"select", 	"req":1, "label":1,												"id":"estado",		"nombre":"Estado", 			"opt":{} ,"sif":{"estudio":[0]},"hif":{"estudio":[1]}}
+			,{"tipo":"select", 	"req":1, "label":1,												"id":"municipio",	"nombre":"Municipio", 	"opt":{} ,"sif":{"estudio":[0]},"hif":{"estudio":[1]}}
+			,{"tipo":"select", 	"req":1, "label":1,												"id":"parroquia",	"nombre":"Parroquia", 	"opt":{} ,"sif":{"estudio":[0]},"hif":{"estudio":[1]}}
+			,{"tipo":"text", 		"req":1, "label":1, "max":256,	"min":2, 	"id":"calle",			"nombre":"Calle / Av."				   ,"sif":{"estudio":[0]},"hif":{"estudio":[1]}}
+			,{"tipo":"text", 		"req":1, "label":1, "max":256,	"min":2, 	"id":"edf",				"nombre":"Casa / Edf."					 ,"sif":{"estudio":[0]},"hif":{"estudio":[1]}}
+			,{"tipo":"text", 		"req":1, "label":1, "max":256,	"min":2, 	"id":"apto",			"nombre":"Apto. / número"				 ,"sif":{"estudio":[0]},"hif":{"estudio":[1]}}
+			,{"tipo":"opt", 		"req":1, "label":1, 											"id":"transp",		"nombre":"Transporte", 	"opt":{"Si":1, "No":0},"sif":{"estudio":[0]}, "hif":{"estudio":[1]}}
+			,{"tipo":"opt", 		"req":1, "label":1, 											"id":"comida",		"nombre":"Comida", 			"opt":{"Si":1, "No":0},"sif":{"estudio":[0]}, "hif":{"estudio":[1]}}
+		]}
+		,{"nombre":"Presupuesto", "tipo":"fset", "l":[
+			{"tipo":"static", 		"req":1, "label":1, "value":0, 							"id":"total",			"nombre":"Total"}
+		]}
+		,{"tipo":"submit", 						 "label":0,													"id":"enviar",		"nombre":"Enviar Presupuesto"}
+	]
+}

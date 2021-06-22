@@ -1,0 +1,16 @@
+Title: reverse ssh
+participant mi.pc
+participant dmz.pc
+participant web.pc
+Note over web.pc: ssh -R 19999:localhost:22 sourceuser@dmz.pc
+Note over dmz.pc: ssh localhost -p 19999
+Note over mi.pc: ssh sourceuser@dmz.pc
+Note over dmz.pc: ssh localhost -p 19999 
+
+
+
+
+
+
+
+

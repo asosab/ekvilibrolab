@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter" rel="stylesheet" type="text/css">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+
+    <title>flowchart.js</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>flowchart.js</h1>
+        <p>Draws simple SVG flow chart diagrams from textual representation of the diagram</p>
+
+        <a href="https://github.com/adrai/flowchart.js">
+          <img class="gh-forkme" src="//s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub">
+        </a>
+
+        <ul>
+          <li><a href="https://github.com/adrai/flowchart.js/raw/master/release/flowchart-latest.zip">ZIP File <strong>Download</strong></a></li>
+          <li><a href="https://github.com/adrai/flowchart.js/raw/master/release/flowchart.amd-latest.zip">ZIP File <strong>AMD version</strong></a></li>
+          <li><a href="https://github.com/adrai/flowchart.js">View On <strong>GitHub</strong></a></li>
+        </ul>
+    </header>
+
+    <div id="main">
+
+      <section id="demo1">
+        <table align="center" class="inner">
+          <tr>
+            <td>
+            <h3>Demo 1. Try editing me below</h3>
+            <div class="editor-wrapper">
+<div class="editor editor1">st=>start: Start:>http://www.google.com[blank]
+e=>end:>http://www.google.com
+op1=>operation: My Operation
+sub1=>subroutine: My Subroutine
+cond=>condition: Yes 
+or No?:>http://www.google.com
+io=>inputoutput: catch something...
+
+st->op1->cond
+cond(yes)->io->e
+cond(no)->sub1(right)->op1</div>
+           </div>
+           <!--   Theme:
+            <select class="theme">
+              <option value="simple">Simple</option>
+              <option value="hand" selected>Hand drawn</option>
+            </select> -->
+            </td>
+            <td class="diagram diagram1">This should be a diagram! If you don't see it you need Javascript enabled</td>
+          </tr>
+        </table>
+
+      </section>
+
+      <b>Conditions can also be redirected like cond(yes, bottom) or cond(yes, right)</b>
+      <b>... and the other symbols too... like sub1(right)</b>
+      <div class="inner">
+      <section id="usage">
+        <h3>Usage</h3>
+        flowchart.js depends on <a href="http://raphaeljs.com/">Raphaël</a><br/>To use include the following:
+        <pre>&lt;script src=&quot;<a href="http://github.com/DmitryBaranovskiy/raphael/raw/master/raphael-min.js">raphael-min.js</a>&quot;&gt;&lt;
+&lt;script src=&quot;<a href="flowchart-latest.js">flowchart-latest.js</a>&quot;&gt;&lt;/script&gt;
+</pre>
+You can parse the text:
+<pre>
+&lt;div id=&quot;diagram&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  var diagram = flowchart.parse(&quot;the code definition&quot;);
+  diagram.drawSVG('diagram');
+
+  // you can also try to pass options:
+  
+  diagram.drawSVG('diagram', {
+                              'x': 0,
+                              'y': 0,
+                              'line-width': 3,
+                              'line-length': 50,
+                              'text-margin': 10,
+                              'font-size': 14,
+                              'font-color': 'black',
+                              'line-color': 'black',
+                              'element-color': 'black',
+                              'fill': 'white',
+                              'yes-text': 'yes',
+                              'no-text': 'no',
+                              'arrow-end': 'block',
+                              'scale': 1,
+                              // style symbol types
+                              'symbols': {
+                                'start': {
+                                  'font-color': 'red',
+                                  'element-color': 'green',
+                                  'fill': 'yellow'
+                                },
+                                'end':{
+                                  'class': 'end-element'
+                                }
+                              },
+                              // even flowstate support ;-)
+                              'flowstate' : {
+                                'past' : { 'fill' : '#CCCCCC', 'font-size' : 12},
+                                'current' : {'fill' : 'yellow', 'font-color' : 'red', 'font-weight' : 'bold'},
+                                'future' : { 'fill' : '#FFFF99'},
+                                'request' : { 'fill' : 'blue'},
+                                'invalid': {'fill' : '#444444'},
+                                'approved' : { 'fill' : '#58C4A3', 'font-size' : 12, 'yes-text' : 'APPROVED', 'no-text' : 'n/a' },
+                                'rejected' : { 'fill' : '#C45879', 'font-size' : 12, 'yes-text' : 'n/a', 'no-text' : 'REJECTED' }
+                              }
+                            });
+&lt;/script&gt;
+</pre>
+
+      <section id="demo2">
+        <table align="center" class="inner">
+          <tr>
+            <td>
+            <h3>Demo 2 with color coding (flowstate). Try editing me below</h3>
+            <div class="editor-wrapper">
+<div class="editor editor2">st=>start: Start|past:>http://www.google.com[blank]
+e=>end: Ende|future:>http://www.google.com
+op1=>operation: My Operation|past
+op2=>operation: Stuff|current
+sub1=>subroutine: My Subroutine|invalid
+cond=>condition: Yes 
+or No?|approved:>http://www.google.com
+c2=>condition: Good idea|rejected
+io=>inputoutput: catch something...|future
+
+st->op1(right)->cond
+cond(yes, right)->c2
+cond(no)->sub1(left)->op1
+c2(yes)->io->e
+c2(no)->op2->e</div>
+           </div>
+           <!--   Theme:
+            <select class="theme">
+              <option value="simple">Simple</option>
+              <option value="hand" selected>Hand drawn</option>
+            </select> -->
+            </td>
+            <td class="diagram diagram2">This should be a diagram! If you don't see it you need Javascript enabled</td>
+          </tr>
+        </table>
+
+      </section>
+
+    <footer>
+      <hr />
+      <div class="inner">
+        by <a href="https://github.com/adrai">Adriano Raiano</a> - <a href="https://twitter.com/adrirai">@adrirai</a>
+      </div>
+    </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
+    <!-- Needed for the text editor -->
+    <script src="//d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+
+    <script src="underscore-min.js"></script>
+    <script src="raphael-min.js"></script>
+
+    <script src="flowchart-latest.js"></script>
+    <script src="svginnerhtml.min.js"></script>
+ 
+    <script type="text/javascript">
+
+      function setup_editor(div, nr) {
+
+        var editor_div = div.find(".editor" + nr);
+        var diagram_div = div.find(".diagram" + nr);
+        var theme_div = div.find(".theme" + nr);
+
+        // Setup the editor diagram
+        var editor = ace.edit(editor_div.get(0));
+        editor.setTheme("ace/theme/crimson_editor");
+        editor.getSession().setMode("ace/mode/asciidoc");
+        editor.getSession().on('change', _.debounce(on_change, 100));
+
+        theme_div.change(on_change);
+        on_change();
+
+        function on_change() {
+          try {
+            var diagram = flowchart.parse(editor.getValue());
+
+            editor.getSession().setAnnotations([]);
+
+            // Clear out old diagram
+            diagram_div.html('');
+
+            // Draw
+            if (nr === 1) {
+              diagram.drawSVG(diagram_div.get(0));
+            } else if (nr === 2) {
+              diagram.drawSVG(diagram_div.get(0), {
+                'flowstate' : {
+                  'past' : { 'fill' : '#CCCCCC', 'font-size' : 12},
+                  'current' : {'fill' : 'yellow', 'font-color' : 'red', 'font-weight' : 'bold'},
+                  'future' : { 'fill' : '#FFFF99'},
+                  'invalid': {'fill' : '#444444'},
+                  'approved' : { 'fill' : '#58C4A3', 'font-size' : 12, 'yes-text' : 'APPROVED', 'no-text' : 'n/a' },
+                  'rejected' : { 'fill' : '#C45879', 'font-size' : 12, 'yes-text' : 'n/a', 'no-text' : 'REJECTED' }
+                }
+              });
+            }
+
+          } catch(err) {
+            var annotation = {
+              type: "error", // also warning and information
+              column: 0,
+              row: 0,
+              text: err.message
+            };
+            if (err instanceof Diagram.ParseError) {
+              annotation.row    = err.loc.first_line - 1;
+              annotation.column = err.loc.first_column;
+            }
+            editor.getSession().setAnnotations([annotation]);
+            throw err;
+          }
+        }        
+      }
+
+      $(document).ready(function() {
+        // Example diagrams
+        
+        // Setup all the editors
+        setup_editor($('#demo1'), 1);
+
+        setup_editor($('#demo2'), 2);
+      });
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-42950201-1', 'adrai.github.io');
+      ga('send', 'pageview');
+    </script>
+  </body>
+</html>

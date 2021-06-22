@@ -1,0 +1,9 @@
+Title: Proceso global anual de presupuesto
+participant Gerencias
+participant Planificación
+participant Presupuesto
+Gerencias->Planificación: (ene..dic) Informe mensual de presupuesto aplicado
+Gerencias->Planificación: (agosto) Se entrega presupuesto para el próximo año
+Planificación-->Gerencias: Se aprueba o desaprueba el presupuesto del próximo año
+Planificación->Presupuesto: Se comunica el presupuesto para su ejecución
+Presupuesto->>Gerencias: Se ejecuta el presupuesto mes a mes

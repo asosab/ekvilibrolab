@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Face Detection jQuery Plugin</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css"/>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
+	<script src="js/photobooth_min.js"></script> 
+	<script src="js/ccv.js"></script> 
+	<script src="js/face.js"></script>
+	<script src="js/jquery.facedetection.js"></script> 
+
+
+	<script>
+/* http://wolframhempel.github.io/photobooth-js/ */
+
+function rostro(coords){
+	var x1 = Math.round(coords.positionX - (coords.width * 0.2));
+	var y1 = Math.round(coords.positionY - (coords.height * 0.3));
+	var x2 = Math.round(coords.width + ((coords.width * 0.2)*2));
+	var y2 = Math.round(coords.height + ((coords.height * 0.3)*2.5));
+	return {'x1':x1,'y1':y1,'x2':x2,'y2':y2}
+}
+
+function  crop(imagen, rostro){
+    var crop_canvas,
+        left 	= rostro.x1,
+        top 	= rostro.y1,
+        width 	= rostro.x2,
+        height 	= rostro.y2;
+    crop_canvas = document.createElement('canvas');
+    crop_canvas.width = width;
+    crop_canvas.height = height;
+    var img = document.getElementById(imagen);
+    crop_canvas.getContext('2d').drawImage(img, left, top, width, height, 0, 0, width, height);
+    //window.open(crop_canvas.toDataURL("image/png"));
+    return crop_canvas.toDataURL();
+}
+
+
+function hacercrop(coords){
+	//var imagen = $('#foto').attr('src');
+	$('#foto').attr('src', crop('foto', rostro(coords)));
+}
+
+function enmarcar(coords){
+	for (var i = 0; i < coords.length; i++) {
+		var cara = rostro(coords[i]);
+		var x1 = cara.x1;
+		var y1 = cara.y1;
+		var x2 = cara.x2;
+		var y2 = cara.y2;
+		$('<div>', {
+			'class':'face',
+			'css': {
+				'position':	'absolute',
+				'left':		x1  +'px', // coords[i].positionX +'px',
+				'top':		y1  +'px', // coords[i].positionY +'px',
+				'width': 	x2  +'px', // coords[i].width		+'px',
+				'height': 	y2  +'px', // coords[i].height	+'px'
+			}
+		})
+		.appendTo('#contenido');
+	}
+}
+var coords;
+	$(function() {
+		$('#caja').photobooth().on("image",function( event, dataUrl ){
+			$("#foto").attr("src", dataUrl);
+
+			coords = $('#foto').faceDetection({
+				complete:function(algo) {
+					$('#msj').text('Listo!');
+					//console.log(algo);
+					enmarcar(coords);
+
+					//$('#msj').text(coords[0].positionX +'px, '+ coords[0].positionY +'px, ' + coords[0].width		+'px, ' +coords[0].height	+'px');
+
+				},
+				error:function(img, code, message) {
+					$('#msj').text('error: '+message);
+					
+
+				}
+			});
+			
+
+
+		});
+	});
+
+
+/**
+* source can be an image, video or canvas element
+*/
+function toDataUrl( source )
+{
+    var canvas = document.createElement( "canvas" );
+    canvas.width = source.videoWidth || source.width;
+    canvas.height = source.videoHeight || source.height;
+    canvas.getContext( "2d" ).drawImage( source, 0, 0 );
+    return canvas.toDataURL();
+};
+
+
+function saveDataUrl( fileName, dataUrl )
+{
+    var dataString = dataUrl.split( "," )[ 1 ];
+    var buffer = new Buffer( dataString, 'base64');
+    var extension = dataUrl.match(/\/(.*)\;/)[ 1 ];
+    var fs = require( "fs" );
+    var fullFileName = fileName + "." + extension;
+    fs.writeFileSync( fullFileName, buffer, "binary" );
+}
+
+
+	</script>
+
+	<style>
+		.face {
+			border:2px solid #FFF;
+		}
+	</style>
+</head>
+
+<body>
+
+
+<div id='contenido'><img id='foto' style="width: 470px; height: 300px;"  /></div>
+<div id='caja' style="width: 470px; height: 300px;" ></div>
+<div id='msj'></div>
+
+
+</body>
+</html>

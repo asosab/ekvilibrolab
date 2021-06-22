@@ -1,0 +1,14 @@
+ini=>start: Inicio|pasado:>index.html#p=flowchart[blank]
+fin=>end: Fin|futuro:>index.html#p=flowchart
+op1=>operation: Una operación|pasado
+op2=>operation: Otra operación|actual
+sub1=>subroutine: Una subrutina|invalido
+cond=>condition: ¿Si o No?|aprobado:>index.html#p=flowchart
+c2=>condition: otra cond...|negado
+io=>inputoutput: un i/o|futuro
+
+ini->op1(right)->cond
+cond(yes, right)->c2
+cond(no)->sub1(left)->op1
+c2(yes)->io->fin
+c2(no)->op2->fin

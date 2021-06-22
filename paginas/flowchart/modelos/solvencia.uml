@@ -1,0 +1,19 @@
+Title: Solvencia Electrónica
+Aportante-->Sirena Web (232): Solicitud
+Sirena Web (232)-->>Postgre (143): Select
+Sirena Web (232)-->>Informix (40): Insert
+Sirena Web (232)-->>Postgre (143): Update
+Note right of Sirena Web (232): Genera Solvencia
+Note right of Sirena Web (232): Genera Pdf
+Sirena Web (232)-->archivo (219): cp pdf sin firma
+Presidencia-->archivo (219): crea pdf con firma
+Note right of archivo (219): MONITOR: guarda pdf firmados en carpetas RIF
+Note right of archivo (219): MONITOR: borra el pdf homónimo sin firma
+archivo (219)-->>ws (53):orden de actualización de BD
+ws (53)-->>Informix (40): Select
+ws (53)-->>Postgre (143): Insert
+Note right of archivo (219): MONITOR: agrega el RIF a una lista en caso fallido
+Aportante-->ws (53):Busca su estado de solvencia
+ws (53)-->>Postgre (143): Select
+ws (53)-->>archivo (219): cat al pdf
+ws (53)-->Aportante:Muestra estado de solvencia y permite descargar el pdf
