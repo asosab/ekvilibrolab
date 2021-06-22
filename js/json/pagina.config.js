@@ -1,7 +1,7 @@
 pagina.config = {
 	'titulo':'ekvilibroLab'
 	,'menu':[
-//		 {'t':'Inicio','u':'#p=inicio','c':'active'}
+		 {'t':'Inicio','u':'#p=inicio','c':'active'}
 //		,{'t':'Galeria','u':'#p=galeria','c':''} 
 //		,{'t':'Presupuesto','u':'#p=presupuesto','c':''}
 
