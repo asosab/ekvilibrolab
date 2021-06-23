@@ -1,11 +1,9 @@
 console.log("KJ3.js");
 
 function generateHtmlTable(data) {
-    var html = '<table  class="table table-condensed table-hover table-striped">';
-
-      if(typeof(data[0]) === 'undefined') {
-        return null;
-      } else {
+  var html = '<table  class="table table-condensed table-hover table-striped">';
+  if(typeof(data[0]) === 'undefined') {return null;
+	} else {
 		$.each(data, function( index, row ) {
 		  //bind header
 		  if(index == 0) {
@@ -32,9 +30,9 @@ function generateHtmlTable(data) {
 		html += '</tbody>';
 		html += '</table>';
 		alert(html);
-		$('#producto').append(html);
-	  }
-	}	
+		$('#producto').html(html);
+	}
+}	
 
 
 
@@ -55,6 +53,7 @@ pagina.KJ3 = function(obj,fnc) {
 	  success: function(response){
 		data = $.csv.toArrays(response);
 		generateHtmlTable(data);
+		console.log("desplegada la tabla");
 	  }   
 	});
 
