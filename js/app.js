@@ -24,6 +24,7 @@ $(function() {
     ,$.getScript( "js/app/feedback.js" )
     ,$.getScript( "js/app/pagina.js" )
     ,$.getScript( "js/json/pagina.config.js" )
+    ,$.getScript( "js/lib/jquery.csv-0.71.min.js" )
     ,$.Deferred(function( deferred ){$( deferred.resolve );})
   ).done(function(){
     pagina.init(pagina.config);
