@@ -41,24 +41,32 @@ pagina.KJ3 = function(obj,fnc) {
 	var pag = "KJ3";
 	var dir = "paginas/" + pag + "/";
 	var producto = $("<DIV id='producto'></DIV>");
-	var data;
-	$.getScript( "js/lib/jquery.csv-0.71.min.js" );
+	
 	if($("#cuerpo").length==0) $('body').append("<div id='cuerpo'></div>");
 	$("#cuerpo").html(producto);
+}
 
+
+	var data;
 	$.ajax({
 	  type: "GET",  
 	  url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRmjlZGRLnjrDcLnpGAlJniJntV5mtYDVU9_XaDNwEfvWtNYis88MXAQa8FPVC3Gu26gd339saCBCo0/pub?gid=0&single=true&output=csv",
 	  dataType: "text",       
 	  success: function(response){
 		data = $.csv.toArrays(response);
+		pagina.KJ3();
+
+		
 		generateHtmlTable(data);
 		console.log("desplegada la tabla");
 	  }   
 	});
 
-}
-pagina.KJ3();
+
+
+
+
+
 
 
 
