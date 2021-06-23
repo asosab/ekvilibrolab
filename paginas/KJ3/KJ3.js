@@ -1,7 +1,7 @@
 console.log("KJ3.js");
 
 function generarProducto(data){
-	var foto = $("<img id='imgproducto'/>");
+	var foto = $("<img id='imgproducto' width='20%' />");
 	if(typeof(data[0]) === 'undefined') {return null;
 	} else {
 //		console.log(data[0]);
