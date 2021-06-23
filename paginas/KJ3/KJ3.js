@@ -4,8 +4,9 @@ function generarProducto(data){
 	var foto = $("<img id='imgproducto'/>");
 	if(typeof(data[0]) === 'undefined') {return null;
 	} else {
-		foto.attr("src",data[6][0]);
-		$('#producto').html(foto);
+		console.log(data[0]);
+//		foto.attr("src",data[6][0]);
+//		$('#producto').html(foto);
 	}
 }
 
