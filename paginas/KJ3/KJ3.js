@@ -1,5 +1,15 @@
 console.log("KJ3.js");
 
+function generarProducto(data){
+	var foto = $("<img id='imgproducto'/>");
+	if(typeof(data[0]) === 'undefined') {return null;
+	} else {
+		foto.attr("src",data[6][0]);
+		$('#producto').html(foto);
+	}
+}
+
+
 function generateHtmlTable(data) {
   var html = '<table  class="table table-condensed table-hover table-striped">';
   if(typeof(data[0]) === 'undefined') {return null;
@@ -56,8 +66,8 @@ pagina.KJ3 = function(obj,fnc) {
 		data = $.csv.toArrays(response);
 		pagina.KJ3();
 
-		
-		generateHtmlTable(data);
+
+		generarProducto(data);
 		console.log("desplegada la tabla");
 	  }   
 	});
