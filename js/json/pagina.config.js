@@ -5,11 +5,11 @@ pagina.config = {
 //		,{'t':'Galeria','u':'#p=galeria','c':''} 
 //		,{'t':'Presupuesto','u':'#p=presupuesto','c':''}
 
-		,{'t':'Kombuchas','u':'#','c':'dropdown','l':[
-			{'t':'Flor de Jamaica','u':'#p=KJ3','c':''}
-			,{'t':'Jengibre, cúrcuma y miel','u':'#p=KJC3','c':''}
-			]
-		} 
+//		,{'t':'Kombuchas','u':'#','c':'dropdown','l':[
+//			{'t':'Flor de Jamaica','u':'#p=KJ3','c':''}
+//			,{'t':'Jengibre, cúrcuma y miel','u':'#p=KJC3','c':''}
+//			]
+//		} 
 
 
 	]
