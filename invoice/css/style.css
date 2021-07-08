@@ -53,4 +53,9 @@ table td, table th { border: 1px solid black; padding: 5px; }
 textarea:hover, textarea:focus, #items td.total-value textarea:hover, #items td.total-value textarea:focus, .delete:hover { background-color:#EEFF88; }
 
 .delete-wpr { position: relative; }
-.delete { display: block; color: #000; text-decoration: none; position: absolute; background: #EEEEEE; font-weight: bold; padding: 0px 3px; border: 1px solid; top: -6px; left: -22px; font-family: Verdana; font-size: 12px; }
+.delete { display: block; color: #FFF; text-decoration: none; position: absolute; background: #FFF; font-weight: bold; padding: 0px 3px; border: 0px solid; top: -6px; left: -22px; font-family: Verdana; font-size: 12px; }
+#addrow { color: #FFF; }
+
+#hiderow{
+  display: none;
+}

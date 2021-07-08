@@ -16,6 +16,11 @@ function print_today() {
   return today;
 }
 
+function numnota(){
+  var now = new Date();
+  return now.getTime();
+}
+
 // from http://www.mediacollege.com/internet/javascript/number/round.html
 function roundNumber(number,decimals) {
   var newString;// The new rounded number
@@ -135,5 +140,7 @@ $(document).ready(function() {
   });
   
   $("#date").val(print_today());
+
+  $("#numnota").val(numnota());
   
 });
