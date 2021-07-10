@@ -92,7 +92,7 @@ function bind() {
 
 function addRow(item, cantidad, valor){
   $(".item-row:last").after('<tr class="item-row"><td class="description"><div class="delete-wpr"><textarea>'+item+'</textarea><a class="delete" href="javascript:;" title="quitar">X</a></div></td><td class="tdqty"><textarea class="qty">'+cantidad+'</textarea></td><td class="tdcost"><textarea class="cost">'+valor+'</textarea></td><td class="tdprice"><span class="price">Bs.0</span></td></tr>');
-  var row = $(".item-row:last").parents('.item-row');
+  var row = $(".item-row:last");
   var price = row.find('.cost').val().replace("Bs.","") * row.find('.qty').val();
   price = roundNumber(price,2);
   isNaN(price) ? row.find('.price').html("N/A") : row.find('.price').html("Bs."+price);
