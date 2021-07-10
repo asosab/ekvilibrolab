@@ -44,7 +44,7 @@ table td, table th { border: none; padding: 2px; }
 #items td.description { width: 250px; }
 #items td.description textarea, #items td.item-name textarea { width: 100%; }
 
-.total { vertical-align: top; border: 0; clear: both; width: 100%; margin: 0 0 0 0; font: 30px/1 Roboto; font-weight: bold;}
+.total { vertical-align: top; border: 0; clear: both; width: 100%; margin: 0 0 0 0; font: 30px/1 Roboto; font-weight: bold; padding-right: 1.28em; padding-left: 1.28em;}
 .totali {font: 30px/1 Roboto; vertical-align: top; text-align: left;}
 .totald {font: 30px/1 Roboto; vertical-align: top; text-align: right;}
 #total {font: 30px/1 Roboto; vertical-align: top; text-align: right;}
