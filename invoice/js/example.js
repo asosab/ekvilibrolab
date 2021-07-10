@@ -122,7 +122,7 @@ $(document).ready(function() {
   
 
   var cli, fec, ven, est, i1Nom, i1Can, i1val, i2Nom, i2Can, i2val, i3Nom, i3Can, i3val, i4Nom, i4Can, i4val;
-  cli = $.url('?cli');
+  cli = decodeURI($.url('?cli'));
   fec = $.url('?fec');
   ven = $.url('?ven');
   est = $.url('?est');
