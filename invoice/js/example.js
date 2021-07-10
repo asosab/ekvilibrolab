@@ -135,7 +135,7 @@ $(document).ready(function() {
   cli = decodeURI($.url('?cli'));
   
   fec = decodeURI($.url('?fec'));
-  if (fec) {fec = format_fecha(fec);} else {fec = print_today();}
+  if (fec) {} else {fec = print_today();}
   $("#date").val(fec);
 
 
