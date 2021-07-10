@@ -6,7 +6,7 @@
 
 * { margin: 0; padding: 0; font: 14px/1.3 Roboto; }
 body {background-color:#FFFFFF;}
-#page-wrap { background-color: #FFFFFF; width: 450px; margin: 0 auto; }
+#page-wrap { background-color: #FFFFFF; width: 500px; margin: 0 auto; padding: 0 20 0 20; }
 #nombreempresa {font: 30px Montserrat;}
 
 hr {position: relative; top: 0px; border: none; height: 1px; background: black; margin-bottom: 20px;}
