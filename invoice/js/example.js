@@ -71,21 +71,10 @@ function update_total() {
     price = $(this).html().replace("Bs.","");
     if (!isNaN(price)) total += Number(price);
   });
-
   total = roundNumber(total,2);
-
-  $('#subtotal').html("Bs."+total);
   $('#total').html("Bs."+total);
-  
-  update_balance();
 }
 
-function update_balance() {
-  var due = $("#total").html().replace("Bs.","") - $("#paid").val().replace("Bs.","");
-  due = roundNumber(due,2);
-  
-  $('.due').html("Bs."+due);
-}
 
 function update_price() {
   var row = $(this).parents('.item-row');
@@ -106,8 +95,6 @@ $(document).ready(function() {
   $('input').click(function(){
     $(this).select();
   });
-
-  $("#paid").blur(update_balance);
    
   $("#addrow").click(function(){
     $(".item-row:last").after('<tr class="item-row"><td class="item-name"><div class="delete-wpr"><textarea>Item Name</textarea><a class="delete" href="javascript:;" title="Remove row">X</a></div></td><td class="description"><textarea>Description</textarea></td><td><textarea class="cost">$0</textarea></td><td><textarea class="qty">0</textarea></td><td><span class="price">$0</span></td></tr>');
@@ -122,25 +109,8 @@ $(document).ready(function() {
     update_total();
     if ($(".delete").length < 2) $(".delete").hide();
   });
-  
-  $("#cancel-logo").click(function(){
-    $("#logo").removeClass('edit');
-  });
-  $("#delete-logo").click(function(){
-    $("#logo").remove();
-  });
-  $("#change-logo").click(function(){
-    $("#logo").addClass('edit');
-    $("#imageloc").val($("#image").attr('src'));
-    $("#image").select();
-  });
-  $("#save-logo").click(function(){
-    $("#image").attr('src',$("#imageloc").val());
-    $("#logo").removeClass('edit');
-  });
+
   
   $("#date").val(print_today());
-
-  $("#numnota").val(numnota());
-  
+  update_total();
 });
