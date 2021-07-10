@@ -114,6 +114,8 @@ $(document).ready(function() {
   $("#date").val(print_today());
   update_total();
 
-  console.log("hola");
+  var q;
+  q = url('?');
+  console.log(q);
 
 });
