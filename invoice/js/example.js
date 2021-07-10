@@ -132,15 +132,15 @@ $(document).ready(function() {
   
 
   var cli, fec, ven, est, i1Nom, i1Can, i1val, i2Nom, i2Can, i2val, i3Nom, i3Can, i3val, i4Nom, i4Can, i4val;
-  cli = decodeURI($.url('?cli'));
+  cli = decodeURIComponent($.url('?cli'));
   
-  fec = decodeURI($.url('?fec'));
+  fec = decodeURIComponent($.url('?fec'));
   if (fec) {} else {fec = print_today();}
   $("#date").val(fec);
 
 
-  ven = decodeURI($.url('?ven'));
-  est = decodeURI($.url('?est'));
+  ven = decodeURIComponent($.url('?ven'));
+  est = decodeURIComponent($.url('?est'));
 
   i1Nom = decodeURIComponent($.url('?i1Nom'));
   i1Can = $.url('?i1Can');
@@ -167,10 +167,6 @@ $(document).ready(function() {
   if (i3Nom) {addRow(i3Nom, i3Can, "Bs."+i3val);}
   if (i4Nom) {addRow(i4Nom, i4Can, "Bs."+i4val);}
 
-
   update_total();
 
-  var temp;
-  temp = $.url('?fec');
-  console.log(i1Nom);
 });
