@@ -169,4 +169,7 @@ $(document).ready(function() {
 
 
   update_total();
+
+  var temp;
+  console.log(temp);
 });
