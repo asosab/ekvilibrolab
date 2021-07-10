@@ -92,6 +92,11 @@ function bind() {
 
 function addRow(item, cantidad, valor){
   $(".item-row:last").after('<tr class="item-row"><td class="description"><div class="delete-wpr"><textarea>'+item+'</textarea><a class="delete" href="javascript:;" title="quitar">X</a></div></td><td class="tdqty"><textarea class="qty">'+cantidad+'</textarea></td><td class="tdcost"><textarea class="cost">'+valor+'</textarea></td><td class="tdprice"><span class="price">Bs.0</span></td></tr>');
+  var row = $(".item-row:last").parents('.item-row');
+  var price = row.find('.cost').val().replace("Bs.","") * row.find('.qty').val();
+  price = roundNumber(price,2);
+  isNaN(price) ? row.find('.price').html("N/A") : row.find('.price').html("Bs."+price);
+  update_total();
 }
 
 $(document).ready(function() {
@@ -143,10 +148,10 @@ $(document).ready(function() {
   if (ven) {$("#vendedor").val(ven);}
   if (est) {$("#estadonota").val(est);}
 
-  if (i1Nom) {addRow(i1Nom, i1Can, "Bs."+i1val);update_price();}
-  if (i2Nom) {addRow(i2Nom, i2Can, "Bs."+i2val);update_price();}
-  if (i3Nom) {addRow(i3Nom, i3Can, "Bs."+i3val);update_price();}
-  if (i4Nom) {addRow(i4Nom, i4Can, "Bs."+i4val);update_price();}
+  if (i1Nom) {addRow(i1Nom, i1Can, "Bs."+i1val);}
+  if (i2Nom) {addRow(i2Nom, i2Can, "Bs."+i2val);}
+  if (i3Nom) {addRow(i3Nom, i3Can, "Bs."+i3val);}
+  if (i4Nom) {addRow(i4Nom, i4Can, "Bs."+i4val);}
 
 
   update_total();
