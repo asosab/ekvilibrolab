@@ -1,13 +1,19 @@
 function capture() {
   var captura;
-  html2canvas(document.querySelector("#page-wrap"), {
-    onrendered: function(canvas) {
-      captura = canvas.toDataURL("image/png");
-      $('#captura').click(function(){
-        $('#captura').attr("src", captura);
-      });
-    }
-  });
+
+  setTimeout(function(){
+
+    html2canvas(document.querySelector("#page-wrap"), {
+      onrendered: function(canvas) {
+        captura = canvas.toDataURL("image/png");
+        $('#captura').click(function(){
+          $('#captura').attr("src", captura);
+        });
+      }
+    });
+
+  },1000);
+
 }
 
 function print_today() {
