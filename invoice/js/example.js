@@ -91,7 +91,7 @@ function bind() {
 }
 
 $(document).ready(function() {
-
+  $.getScript( "../js/lib/url.js" )
   $('input').click(function(){
     $(this).select();
   });
@@ -113,4 +113,7 @@ $(document).ready(function() {
   
   $("#date").val(print_today());
   update_total();
+
+  console.log("hola");
+
 });
