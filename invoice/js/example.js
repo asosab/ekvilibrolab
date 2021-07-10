@@ -121,6 +121,7 @@ $(document).ready(function() {
   fec = $.url('?fec');
   ven = $.url('?ven');
   est = $.url('?est');
+
   i1Nom = $.url('?i1Nom');
   i1Can = $.url('?i1Can');
   i1val = $.url('?i1val');
@@ -142,10 +143,10 @@ $(document).ready(function() {
   if (ven) {$("#vendedor").val(ven);}
   if (est) {$("#estadonota").val(est);}
 
-  if (i1Nom) {addRow(i1Nom, i1Can, i1val);}
-  if (i2Nom) {addRow(i2Nom, i2Can, i2val);}
-  if (i3Nom) {addRow(i3Nom, i3Can, i3val);}
-  if (i4Nom) {addRow(i4Nom, i4Can, i4val);}
+  if (i1Nom) {addRow(i1Nom, i1Can, "Bs."+i1val);}
+  if (i2Nom) {addRow(i2Nom, i2Can, "Bs."+i2val);}
+  if (i3Nom) {addRow(i3Nom, i3Can, "Bs."+i3val);}
+  if (i4Nom) {addRow(i4Nom, i4Can, "Bs."+i4val);}
 
   bind();
   //update_total();
