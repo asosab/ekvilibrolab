@@ -91,7 +91,7 @@ function bind() {
 }
 
 $(document).ready(function() {
-  $.getScript( "../js/lib/url.js" )
+  //$.getScript( "../js/lib/url.js" );
   $('input').click(function(){
     $(this).select();
   });
