@@ -172,5 +172,5 @@ $(document).ready(function() {
 
   var temp;
   temp = $.url('?fec');
-  console.log(temp);
+  console.log(i1Nom);
 });
