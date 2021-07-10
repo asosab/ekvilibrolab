@@ -3,7 +3,10 @@ function capture() {
   html2canvas(document.querySelector("#page-wrap"), {
     onrendered: function(canvas) {
       captura = canvas.toDataURL("image/png");
-      $('#captura').attr("src", captura);
+      $('#captura').click(function(){
+        $('#captura').attr("src", captura);
+      });
+      
     }
   });
 }
