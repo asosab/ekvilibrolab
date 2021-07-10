@@ -115,7 +115,7 @@ $(document).ready(function() {
   update_total();
 
   var q;
-  q = url('?');
+  q = $url('?');
   console.log(q);
 
 });
