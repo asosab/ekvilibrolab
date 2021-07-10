@@ -3,10 +3,7 @@ function capture() {
   html2canvas(document.querySelector("#page-wrap"), {
     onrendered: function(canvas) {
       captura = canvas.toDataURL("image/png");
-      $('#captura').click(function(){
-        $('#captura').attr("src", captura);
-      });
-      
+      $('#captura').attr("src", captura);
     }
   });
 }
@@ -181,6 +178,9 @@ $(document).ready(function() {
   if (i4Nom) {addRow(i4Nom, i4Can, "Bs."+i4val);}
 
   update_total();
-  capture();
+  $('#captura').click(function(){
+    capture();
+  });
+  
 
 });
