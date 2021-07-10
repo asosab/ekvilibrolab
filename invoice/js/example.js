@@ -1,3 +1,12 @@
+function capture() {
+  var captura;
+  html2canvas(document.querySelector("#page-wrap"), {
+    onrendered: function(canvas) {
+      captura = canvas.toDataURL("image/png");
+      $('#captura').attr("src", captura)
+    }
+  });
+}
 
 function print_today() {
   // ***********************************************
@@ -169,13 +178,6 @@ $(document).ready(function() {
   if (i4Nom) {addRow(i4Nom, i4Can, "Bs."+i4val);}
 
   update_total();
-
-  var captura;
-  html2canvas(document.querySelector("#page-wrap"), {
-    onrendered: function(canvas) {
-      captura = canvas.toDataURL("image/png");
-      $('#captura').attr("src", captura)
-    }
-  });
+  capture();
 
 });
