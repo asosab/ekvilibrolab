@@ -171,5 +171,6 @@ $(document).ready(function() {
   update_total();
 
   var temp;
+  temp = $.url('?fec');
   console.log(temp);
 });
