@@ -16,6 +16,16 @@ function print_today() {
   return today;
 }
 
+
+function format_fecha(fecha) {
+  var now = new Date(fecha);
+  var months = new Array('enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre');
+  var date = ((now.getDate()<10) ? "0" : "")+ now.getDate();
+  function fourdigits(number) { return (number < 1000) ? number + 1900 : number;}
+  var today =  date + " de " + months[now.getMonth()] + " del " +  (fourdigits(now.getYear()));
+  return today;
+}
+
 function numnota(){
   var now = new Date();
   return now.getTime();
@@ -123,7 +133,12 @@ $(document).ready(function() {
 
   var cli, fec, ven, est, i1Nom, i1Can, i1val, i2Nom, i2Can, i2val, i3Nom, i3Can, i3val, i4Nom, i4Can, i4val;
   cli = decodeURI($.url('?cli'));
-  fec = decodeURI(decodeURI($.url('?fec')));
+  
+  fec = $.url('?fec');
+  if (fec) {fec = format_fecha(fec);} else {fec = print_today();}
+  $("#date").val(fec);
+
+
   ven = decodeURI($.url('?ven'));
   est = decodeURI($.url('?est'));
 
@@ -144,7 +159,6 @@ $(document).ready(function() {
   i4val = $.url('?i4val');
 
   if (cli) {$("#contacto").val(cli);}
-  if (fec) {$("#date").val(fec);}
   if (ven) {$("#vendedor").val(ven);}
   if (est) {$("#estadonota").val(est);}
 
