@@ -90,19 +90,21 @@ function bind() {
   $(".qty").blur(update_price);
 }
 
+function addRow(item, cantidad, valor){
+  $(".item-row:last").after('<tr class="item-row"><td class="description"><div class="delete-wpr"><textarea>'+item+'</textarea><a class="delete" href="javascript:;" title="quitar">X</a></div></td><td class="tdqty"><textarea class="qty">'+cantidad+'</textarea></td><td class="tdcost"><textarea class="cost">'+valor+'</textarea></td><td class="tdprice"><span class="price">Bs.0</span></td></tr>');
+}
+
 $(document).ready(function() {
-  //$.getScript( "../js/lib/url.js" );
   $('input').click(function(){
     $(this).select();
   });
-   
+
   $("#addrow").click(function(){
     $(".item-row:last").after('<tr class="item-row"><td class="item-name"><div class="delete-wpr"><textarea>Item Name</textarea><a class="delete" href="javascript:;" title="Remove row">X</a></div></td><td class="description"><textarea>Description</textarea></td><td><textarea class="cost">$0</textarea></td><td><textarea class="qty">0</textarea></td><td><span class="price">$0</span></td></tr>');
     if ($(".delete").length > 0) $(".delete").show();
     bind();
   });
   
-  bind();
   
   $(".delete").live('click',function(){
     $(this).parents('.item-row').remove();
@@ -112,10 +114,39 @@ $(document).ready(function() {
 
   
   $("#date").val(print_today());
-  update_total();
+  
 
-  var q;
-  q = $.url('?');
-  console.log(q);
+  var cli, fec, ven, est, i1Nom, i1Can, i1val, i2Nom, i2Can, i2val, i3Nom, i3Can, i3val, i4Nom, i4Can, i4val;
+  cli = $.url('?cli');
+  fec = $.url('?fec');
+  ven = $.url('?ven');
+  est = $.url('?est');
+  i1Nom = $.url('?i1Nom');
+  i1Can = $.url('?i1Can');
+  i1val = $.url('?i1val');
 
+  i2Nom = $.url('?i2Nom');
+  i2Can = $.url('?i2Can');
+  i2val = $.url('?i2val');
+
+  i3Nom = $.url('?i3Nom');
+  i3Can = $.url('?i3Can');
+  i3val = $.url('?i3val');
+
+  i4Nom = $.url('?i4Nom');
+  i4Can = $.url('?i4Can');
+  i4val = $.url('?i4val');
+
+  if (cli) {$("#contacto").val(cli);}
+  if (fec) {$("#date").val(fec);}
+  if (ven) {$("#vendedor").val(ven);}
+  if (est) {$("#estadonota").val(est);}
+
+  if (i1Nom) {addRow(i1Nom, i1Can, i1val);}
+  if (i2Nom) {addRow(i2Nom, i2Can, i2val);}
+  if (i3Nom) {addRow(i3Nom, i3Can, i3val);}
+  if (i4Nom) {addRow(i4Nom, i4Can, i4val);}
+
+  bind();
+  //update_total();
 });
