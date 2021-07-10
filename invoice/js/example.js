@@ -142,19 +142,19 @@ $(document).ready(function() {
   ven = decodeURI($.url('?ven'));
   est = decodeURI($.url('?est'));
 
-  i1Nom = decodeURI($.url('?i1Nom'));
+  i1Nom = decodeURIComponent($.url('?i1Nom'));
   i1Can = $.url('?i1Can');
   i1val = $.url('?i1val');
 
-  i2Nom = decodeURI($.url('?i2Nom'));
+  i2Nom = decodeURIComponent($.url('?i2Nom'));
   i2Can = $.url('?i2Can');
   i2val = $.url('?i2val');
 
-  i3Nom = decodeURI($.url('?i3Nom'));
+  i3Nom = decodeURIComponent($.url('?i3Nom'));
   i3Can = $.url('?i3Can');
   i3val = $.url('?i3val');
 
-  i4Nom = decodeURI($.url('?i4Nom'));
+  i4Nom = decodeURIComponent($.url('?i4Nom'));
   i4Can = $.url('?i4Can');
   i4val = $.url('?i4val');
 
