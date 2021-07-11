@@ -182,5 +182,6 @@ $(document).ready(function() {
   update_total();
   capture();
   
+  console.log( i4Can, i2Can, i3Can, i4Can );
 
 });
