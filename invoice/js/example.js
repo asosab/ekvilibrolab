@@ -174,10 +174,10 @@ $(document).ready(function() {
   if (ven) {$("#vendedor").val(ven);}
   if (est) {$("#estadonota").val(est);}
 
-  if (i1Can) {addRow(i1Nom, i1Can, "Bs."+i1val);}
-  if (i2Can) {addRow(i2Nom, i2Can, "Bs."+i2val);}
-  if (i3Can) {addRow(i3Nom, i3Can, "Bs."+i3val);}
-  if (i4Can) {addRow(i4Nom, i4Can, "Bs."+i4val);}
+  if (int(i1Can)>0) {addRow(i1Nom, i1Can, "Bs."+i1val);}
+  if (int(i2Can)>0) {addRow(i2Nom, i2Can, "Bs."+i2val);}
+  if (int(i3Can)>0) {addRow(i3Nom, i3Can, "Bs."+i3val);}
+  if (int(i4Can)>0) {addRow(i4Nom, i4Can, "Bs."+i4val);}
 
   update_total();
   capture();
