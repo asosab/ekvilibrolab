@@ -155,29 +155,29 @@ $(document).ready(function() {
   est = decodeURIComponent($.url('?est'));
 
   i1Nom = decodeURIComponent($.url('?i1Nom'));
-  i1Can = $.url('?i1Can');
+  i1Can = Number($.url('?i1Can'));
   i1val = $.url('?i1val');
 
   i2Nom = decodeURIComponent($.url('?i2Nom'));
-  i2Can = $.url('?i2Can');
+  i2Can = Number($.url('?i2Can'));
   i2val = $.url('?i2val');
 
   i3Nom = decodeURIComponent($.url('?i3Nom'));
-  i3Can = $.url('?i3Can');
+  i3Can = Number($.url('?i3Can'));
   i3val = $.url('?i3val');
 
   i4Nom = decodeURIComponent($.url('?i4Nom'));
-  i4Can = $.url('?i4Can');
+  i4Can = Number($.url('?i4Can'));
   i4val = $.url('?i4val');
 
   if (cli) {$("#contacto").val(cli);}
   if (ven) {$("#vendedor").val(ven);}
   if (est) {$("#estadonota").val(est);}
 
-  if (int(i1Can)>0) {addRow(i1Nom, i1Can, "Bs."+i1val);}
-  if (int(i2Can)>0) {addRow(i2Nom, i2Can, "Bs."+i2val);}
-  if (int(i3Can)>0) {addRow(i3Nom, i3Can, "Bs."+i3val);}
-  if (int(i4Can)>0) {addRow(i4Nom, i4Can, "Bs."+i4val);}
+  if (i1Can>0) {addRow(i1Nom, i1Can, "Bs."+i1val);}
+  if (i2Can>0) {addRow(i2Nom, i2Can, "Bs."+i2val);}
+  if (i3Can>0) {addRow(i3Nom, i3Can, "Bs."+i3val);}
+  if (i4Can>0) {addRow(i4Nom, i4Can, "Bs."+i4val);}
 
   update_total();
   capture();
