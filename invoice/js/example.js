@@ -143,7 +143,7 @@ $(document).ready(function() {
   $("#date").val(print_today());
   
 
-  var cli, fec, ven, est, i1Nom, i1Can, i1val, i2Nom, i2Can, i2val, i3Nom, i3Can, i3val, i4Nom, i4Can, i4val, i5Nom, i5Can, i5val, i6Nom, i6Can, i6val, i7Nom, i7Can, i7val, i8Nom, i8Can, i8val;
+  var cli, fec, ven, est, i1Nom, i1Can, i1val, i2Nom, i2Can, i2val, i3Nom, i3Can, i3val, i4Nom, i4Can, i4val, i5Nom, i5Can, i5val, i6Nom, i6Can, i6val, i7Nom, i7Can, i7val, i8Nom, i8Can, i8val, i9Nom, i9Can, i9val, i10Nom, i10Can, i10val;
   cli = decodeURIComponent($.url('?cli'));
   
   fec = decodeURIComponent($.url('?fec'));
@@ -186,6 +186,14 @@ $(document).ready(function() {
   i8Can = Number($.url('?i8Can'));
   i8val = $.url('?i8val');
 
+  i9Nom = decodeURIComponent($.url('?i9Nom'));
+  i9Can = Number($.url('?i9Can'));
+  i9val = $.url('?i9val');
+
+  i10Nom = decodeURIComponent($.url('?i10Nom'));
+  i10Can = Number($.url('?i10Can'));
+  i10val = $.url('?i10val');
+
   if (cli) {$("#contacto").val(cli);}
   if (ven) {$("#vendedor").val(ven);}
   if (est) {$("#estadonota").val(est);}
@@ -198,10 +206,12 @@ $(document).ready(function() {
   if (i6Can>0) {addRow(i6Nom, i6Can, "Bs."+i6val);}
   if (i7Can>0) {addRow(i7Nom, i7Can, "Bs."+i7val);}
   if (i8Can>0) {addRow(i8Nom, i8Can, "Bs."+i8val);}
+  if (i9Can>0) {addRow(i9Nom, i9Can, "Bs."+i9val);}
+  if (i10Can>0) {addRow(i10Nom, i10Can, "Bs."+i10val);}
 
   update_total();
   capture();
   
-  console.log( i1Can, i2Can, i3Can, i4Can, i5Can, i6Can, i7Can, i8Can );
+  console.log( i1Can, i2Can, i3Can, i4Can, i5Can, i6Can, i7Can, i8Can, i9Can, i10Can );
 
 });
