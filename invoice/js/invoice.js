@@ -207,6 +207,6 @@ $(document).ready(function() {
   update_total();
   capture();
   
-  console.log( i1Can, i2Can, i3Can, i4Can, i5Can, i6Can, i7Can, i8Can, i9Can, i10Can );
+  console.log( des, i1Can, i2Can, i3Can, i4Can, i5Can, i6Can, i7Can, i8Can, i9Can, i10Can );
 
 });
