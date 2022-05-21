@@ -82,6 +82,7 @@ function update_total() {
   montoDes = des*subtotal/100;
   total = subtotal - montoDes;
 
+  $("descuentoi").val('Descuento '+des+'%');
   $("#descuento").val("-Bs."+montoDes);
   $("#subtotalsi").val("Bs."+subtotal);
 
@@ -192,8 +193,6 @@ $(document).ready(function() {
   if (cli) {$("#contacto").val(cli);}
   if (ven) {$("#vendedor").val(ven);}
   if (est) {$("#estadonota").val(est);}
-
-  if (des) {$("descuentoi").val('Descuento '+des+'%');}
 
   if (i1Can>0) {addRow(i1Nom, i1Can, "Bs."+i1val);}
   if (i2Can>0) {addRow(i2Nom, i2Can, "Bs."+i2val);}
