@@ -2,15 +2,21 @@ var map;
 var locations = [];
 
 function initialiseMap() {
+  var id = '1oByVdWnxXUsAJZ7mAXyNsSljsiL_Cu0aFFyIz8R2myk';
+//var id = '1oByVdWnxXUsAJZ7mAXyNsSljsiL_Cu0aFFyIz8R2myk';
+  var llave = 'AIzaSyCz2nyy2FyAGVGODM3rqOlDD_bVzwC4iVw';
+  var gid = '483823972';
+  var valores = 'Ruta01!A2:G';
+  var url = 'https://sheets.googleapis.com/v4/spreadsheets/'+id+'/values/'+valores+'?key='+llave;
+  //var url = 'https://docs.google.com/spreadsheets/d/'+id+'/gviz/tq?tqx=out:json&tq&gid='+gid;
+  //var url = 'https://sheets.googleapis.com/v4/spreadsheets/'+id+'/values/'+valores+'?key='+llave;
 
   // Load data from an example Google spreadsheet that contains latitude and longitude columns using Google Sheets API v4 that returns JSON.
   // Replace the ID of your Google spreadsheet and you API key in the URL:
   // https://sheets.googleapis.com/v4/spreadsheets/ID_OF_YOUR_GOOGLE_SPREADSHEET/values/Sheet1!A2:Q?key=YOUR_API_KEY
   // Also make sure your API key is authorised to access Google Sheets API - you can enable that through your Google Developer console.
   // Finally, in the URL, fix the sheet name and the range that you are accessing from your spreadsheet. 'Sheet1' is the default name for the first sheet.
-  //$.getJSON("https://www.googleapis.com/auth/spreadsheets.readonly/1oByVdWnxXUsAJZ7mAXyNsSljsiL_Cu0aFFyIz8R2myk/values/Ruta01!A2:G?key=AIzaSyCz2nyy2FyAGVGODM3rqOlDD_bVzwC4iVw", function(data) {
-  $.getJSON("https://sheets.googleapis.com/v4/spreadsheets/1oByVdWnxXUsAJZ7mAXyNsSljsiL_Cu0aFFyIz8R2myk/values/Ruta01!A2:G?key=AIzaSyCz2nyy2FyAGVGODM3rqOlDD_bVzwC4iVw", function(data) {
-  //$.getJSON("https://docs.google.com/spreadsheets/d/1oByVdWnxXUsAJZ7mAXyNsSljsiL_Cu0aFFyIz8R2myk/gviz/tq?tqx=out:json&tq&gid=AIzaSyCz2nyy2FyAGVGODM3rqOlDD_bVzwC4iVw", function(data) {
+  $.getJSON(url, function(data) {
     	// data.values contains the array of rows from the spreadsheet. Each row is also an array of cell values.
     	// Modify the code below to suit the structure of your spreadsheet.
     	$(data.values).each(function() {
