@@ -69,9 +69,12 @@ function createMarker(map, location, infowindow) {
   });
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.setContent('<div>'+
-    '<p><strong>' + ((location.wap === undefined) ? location.nombre : ('<a href="' + location.wap +'">' + location.nombre + '</a>')) + '</strong></p>' +
-    ((location.cel === undefined) ? "" : ('<p><strong>Cel: </strong>' + location.cel + '</p>')) +
-    ((location.dir === undefined) ? "" : ('<p><strong>Direccion: </strong>' + location.dir + '</p>')) +
+    '<p><strong>' + 
+    ((location.nombre   === undefined) ? "" : ('<p><strong>' + location.nombre + '</strong></p>')) +
+    ((location.cel      === undefined) ? "" : ('<p><strong>Cel: </strong><a href="tel:' + location.cel + '">'+location.cel+'</a></p>')) +
+    ((location.dir      === undefined) ? "" : ('<p><strong>Direccion: </strong>' + location.dir + '</p>')) +
+    ((location.wap      === undefined) ? "" : ('<a href="' + location.wap +'">WhatsApp</a>')) + '</strong></p>' +
+    ((location.map      === undefined) ? "" : ('<a href="' + location.map +'">GMaps</a>')) + '</strong></p>' +
     '</div>');
     infowindow.open(map, marker);
   });
