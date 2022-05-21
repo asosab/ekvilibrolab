@@ -82,7 +82,7 @@ function update_total() {
   montoDes = des*subtotal/100;
   total = subtotal - montoDes;
 
-  $("#descuentoi").text("Descuento "+ Number($.url('?des') +"%");
+  $("#descuentoi").text("Descuento "+ Number($.url('?des')) +"%");
   $("#descuento").val("-Bs."+montoDes);
   $("#subtotalsi").val("Bs."+subtotal);
 
