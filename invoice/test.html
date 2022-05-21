@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+	<title>Nota de entrega</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+	<link rel='stylesheet' type='text/css' href='css/style.css' />
+	<link rel='stylesheet' type='text/css' href='css/print.css' media="print" />
+	<script type='text/javascript' src='js/jquery-1.3.2.min.js'></script>
+	<script type='text/javascript' src='../js/lib/url.js'></script>
+	<script type='text/javascript' src='../js/lib/html2canvas.js'></script>
+	<script type='text/javascript' src='js/example.js'></script>
+	
+</head>
+<body>
+
+	<div id="page-wrap">
+
+		<div id="empresa">
+			<table>
+	            <tr>
+	                <td>
+	                	<img src="images/logo1.png" alt="ekvilibroLab" id="captura" />
+	                </td>
+	                <td>
+			            <div id="nombreempresa">ekvilibroLab</div>
+			            <div id="datosempresa">cel/WhatsApp: +59174189700<br/>dirección: Calle G 299, Equipetrol Norte<br/>Correo: hola@ekvilibroLab.com<br/></div>
+	                </td>
+	            </tr>
+	        </table>
+		</div>
+
+		<hr/>
+
+		<div style="clear:both"></div>
+
+		<table id="meta">
+            <tr>
+                <td class="meta-head">Contacto</td>
+                <td><textarea id="contacto"></textarea></td>
+            </tr>
+            <tr>
+                <td class="meta-head">Fecha de transacción</td>
+                <td><textarea id="date"></textarea></td>
+            </tr>
+            <tr>
+                <td class="meta-head">Vendedor</td>
+                <td><textarea id="vendedor"></textarea></td>
+            </tr>
+            <tr>
+                <td class="meta-head">Estado</td>
+                <td><textarea id="estadonota"></textarea></td>
+            </tr>
+        </table>
+		
+
+		
+		<table id="items">
+		  <tr>
+		      <th class="description">Producto</th>
+		      <th class="tdqty">Cant.</th>
+		      <th class="tdcost">Precio U.</th>
+		      <th class="tdprice">Valor</th>
+		  </tr>
+		  
+		  <tr class="item-row">
+		  </tr>
+		  
+
+		  <tr id="hiderow">
+		    <td colspan="5"><a id="addrow" href="javascript:;" title="Nueva fila">Nueva fila</a></td>
+		  </tr>
+		</table>
+
+		<hr/>
+
+		<table class="totalt">
+            <tr>
+                <td class="descuentoi">Descuento <textarea id="descuentod" >0</textarea>%</td>
+                <td class="descuentot"><textarea id="descuento" >Bs.0</textarea></td>
+            </tr>
+            <tr>
+                <td class="totali">Total</td>
+                <td class="totald"><textarea id="total" >Bs.500.00</textarea></td>
+            </tr>
+        </table>
+	
+	</div>
+	
+</body>
+
+</html>
