@@ -69,6 +69,7 @@ function roundNumber(number,decimals) {
 }
 
 function update_total() {
+  global des;
   var subtotal = 0;
   var total = 0;
   var montoDes = 0;
