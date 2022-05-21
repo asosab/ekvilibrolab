@@ -1,3 +1,5 @@
+var des;
+
 function capture() {
   var captura;
   html2canvas(document.querySelector("#page-wrap"), {
@@ -135,7 +137,7 @@ $(document).ready(function() {
   $("#date").val(format_fecha());
   
 
-  var cli, des, fec, ven, est, i1Nom, i1Can, i1val, i2Nom, i2Can, i2val, i3Nom, i3Can, i3val, i4Nom, i4Can, i4val, i5Nom, i5Can, i5val, i6Nom, i6Can, i6val, i7Nom, i7Can, i7val, i8Nom, i8Can, i8val, i9Nom, i9Can, i9val, i10Nom, i10Can, i10val;
+  var cli, fec, ven, est, i1Nom, i1Can, i1val, i2Nom, i2Can, i2val, i3Nom, i3Can, i3val, i4Nom, i4Can, i4val, i5Nom, i5Can, i5val, i6Nom, i6Can, i6val, i7Nom, i7Can, i7val, i8Nom, i8Can, i8val, i9Nom, i9Can, i9val, i10Nom, i10Can, i10val;
   cli = decodeURIComponent($.url('?cli'));
   
   fec = decodeURIComponent($.url('?fec'));
