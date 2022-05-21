@@ -69,15 +69,24 @@ function roundNumber(number,decimals) {
 }
 
 function update_total() {
+  var subtotal = 0;
   var total = 0;
+  var montoDes = 0;
+
   $('.price').each(function(i){
     price = $(this).html().replace("Bs.","");
-    if (!isNaN(price)) total += Number(price);
+    if (!isNaN(price)) subtotal += Number(price);
   });
-  total = (100-des)*total/100;
+  montoDes = des*total/100;
+  total = subtotal - montoDes;
+
+  $("#descuento").val("-Bs."+montoDes);
+  $("#subtotalsi").val("Bs."+subtotal);
 
   total = roundNumber(total,2);
   $('#total').html("Bs."+total);
+
+
 }
 
 
@@ -181,7 +190,8 @@ $(document).ready(function() {
   if (cli) {$("#contacto").val(cli);}
   if (ven) {$("#vendedor").val(ven);}
   if (est) {$("#estadonota").val(est);}
-  if (des) {$("#descuento").val(des);}
+
+  if (des) {$("descuentoi").val('Descuento '+des+'%');}
 
   if (i1Can>0) {addRow(i1Nom, i1Can, "Bs."+i1val);}
   if (i2Can>0) {addRow(i2Nom, i2Can, "Bs."+i2val);}
