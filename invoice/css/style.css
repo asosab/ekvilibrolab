@@ -49,6 +49,11 @@ table td, table th { border: none; padding: 2px; }
 .totald {font: 30px/1 Roboto; vertical-align: top; text-align: right;}
 #total {font: 30px/1 Roboto; vertical-align: top; text-align: right;}
 
+.descuentot { vertical-align: top; border: 1; clear: both; width: 100%; margin: 0; font: 20px/1 Roboto; font-weight: bold; padding-right: 1.28em; padding-left: 1.28em;}
+.descuentoi {font: 20px/1 Roboto; vertical-align: top; text-align: left;}
+.descuentod {font: 20px/1 Roboto; vertical-align: top; text-align: right;}
+#descuento {font: 20px/1 Roboto; vertical-align: top; text-align: right;}
+
 textarea:hover, textarea:focus, #items td.total-value textarea:hover, #items td.total-value textarea:focus, .delete:hover { background-color:#FFFFFF; }
 
 .delete-wpr { position: relative; }
