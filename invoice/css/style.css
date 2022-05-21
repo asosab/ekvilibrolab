@@ -44,26 +44,25 @@ table td, table th { border: none; padding: 2px; }
 #items td.description { width: 250px; }
 #items td.description textarea, #items td.item-name textarea { width: 100%; }
 
-.subtotalsit { vertical-align: top; border: 1; clear: both; width: 100%; margin: 0; font: 20px/1 Roboto; font-weight: bold; padding-right: 1.28em; padding-left: 1.28em; padding-top: 0.10em; padding-bottom: 0.10em;}
+.subtotalsit { display: none; vertical-align: top; border: 1; clear: both; width: 100%; margin: 0; font: 20px/1 Roboto; font-weight: bold; padding-right: 1.28em; padding-left: 1.28em; padding-top: 0.10em; padding-bottom: 0.10em;}
 .subtotalsii {font: 20px/1 Roboto; vertical-align: top; text-align: left;}
 .subtotalsid {font: 20px/1 Roboto; vertical-align: top; text-align: right;}
 #subtotalsi {font: 20px/1 Roboto; vertical-align: top; text-align: right;}
-
-.totalt { vertical-align: top; border: 1; clear: both; width: 100%; margin: 0; font: 30px/1 Roboto; font-weight: bold; padding-right: 1.28em; padding-left: 1.28em; padding-top: 0.10em; padding-bottom: 0.10em;}
-.totali {font: 30px/1 Roboto; vertical-align: top; text-align: left;}
-.totald {font: 30px/1 Roboto; vertical-align: top; text-align: right;}
-#total {font: 30px/1 Roboto; vertical-align: top; text-align: right;}
 
 .descuentot { vertical-align: top; border: 1; clear: both; width: 100%; margin: 0; font: 20px/1 Roboto; font-weight: bold; padding-right: 1.28em; padding-left: 1.28em; padding-top: 0.10em; padding-bottom: 0.10em;}
 .descuentoi {font: 20px/1 Roboto; vertical-align: top; text-align: left;}
 .descuentod {font: 20px/1 Roboto; vertical-align: top; text-align: right;}
 #descuento {font: 20px/1 Roboto; vertical-align: top; text-align: right;}
 
-.subtotalcit { vertical-align: top; border: 1; clear: both; width: 100%; margin: 0; font: 20px/1 Roboto; font-weight: bold; padding-right: 1.28em; padding-left: 1.28em; padding-top: 0.10em; padding-bottom: 0.10em;}
+.subtotalcit { display: none; vertical-align: top; border: 1; clear: both; width: 100%; margin: 0; font: 20px/1 Roboto; font-weight: bold; padding-right: 1.28em; padding-left: 1.28em; padding-top: 0.10em; padding-bottom: 0.10em;}
 .subtotalcii {font: 20px/1 Roboto; vertical-align: top; text-align: left;}
 .subtotalcid {font: 20px/1 Roboto; vertical-align: top; text-align: right;}
 #subtotalci {font: 20px/1 Roboto; vertical-align: top; text-align: right;}
 
+.totalt { vertical-align: top; border: 1; clear: both; width: 100%; margin: 0; font: 30px/1 Roboto; font-weight: bold; padding-right: 1.28em; padding-left: 1.28em; padding-top: 0.10em; padding-bottom: 0.10em;}
+.totali {font: 30px/1 Roboto; vertical-align: top; text-align: left;}
+.totald {font: 30px/1 Roboto; vertical-align: top; text-align: right;}
+#total {font: 30px/1 Roboto; vertical-align: top; text-align: right;}
 
 textarea:hover, textarea:focus, #items td.total-value textarea:hover, #items td.total-value textarea:focus, .delete:hover { background-color:#FFFFFF; }
 
