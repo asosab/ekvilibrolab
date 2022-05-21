@@ -77,7 +77,7 @@ function update_total() {
     price = $(this).html().replace("Bs.","");
     if (!isNaN(price)) subtotal += Number(price);
   });
-  montoDes = des*total/100;
+  montoDes = des*subtotal/100;
   total = subtotal - montoDes;
 
   $("#descuento").val("-Bs."+montoDes);
