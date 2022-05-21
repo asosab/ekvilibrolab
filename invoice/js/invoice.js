@@ -69,7 +69,7 @@ function roundNumber(number,decimals) {
 }
 
 function update_total() {
-  global des;
+  var des;
   var subtotal = 0;
   var total = 0;
   var montoDes = 0;
@@ -78,6 +78,7 @@ function update_total() {
     price = $(this).html().replace("Bs.","");
     if (!isNaN(price)) subtotal += Number(price);
   });
+  des = Number($.url('?des'));
   montoDes = des*subtotal/100;
   total = subtotal - montoDes;
 
