@@ -2,11 +2,11 @@ var map;
 var locations = [];
 
 function initialiseMap() {
-  var id = '1oByVdWnxXUsAJZ7mAXyNsSljsiL_Cu0aFFyIz8R2myk';
+  var id = '12AuTzLbbkOj_BQrHi09jJEZaFnThPpn75NJkXaDVivk';
 //var id = '1oByVdWnxXUsAJZ7mAXyNsSljsiL_Cu0aFFyIz8R2myk';
   var llave = 'AIzaSyCz2nyy2FyAGVGODM3rqOlDD_bVzwC4iVw';
-  var gid = '483823972';
-  var valores = 'Ruta01!A2:G';
+  var gid = '661544739';
+  var valores = 'Data!A2:G';
   var url = 'https://sheets.googleapis.com/v4/spreadsheets/'+id+'/values/'+valores+'?key='+llave;
   //var url = 'https://docs.google.com/spreadsheets/d/'+id+'/gviz/tq?tqx=out:json&tq&gid='+gid;
   //var url = 'https://sheets.googleapis.com/v4/spreadsheets/'+id+'/values/'+valores+'?key='+llave;
