@@ -64,7 +64,7 @@ function createMarker(map, location, infowindow) {
     lat: parseFloat(location.lat),
     lng: parseFloat(location.lon)
   };
-  var imgTienda = "https://ekvilibrolab.com/imagen/icons/tienda01.png";
+  var imgTienda = "https://ekvilibrolab.com/imagen/icons/tienda02.png";
   var imgPerson = "https://ekvilibrolab.com/imagen/icons/person01.png";
   var imgekvlab = "https://ekvilibrolab.com/imagen/favicon/android-icon-36x36.png";
   var imgContainer
