@@ -26,8 +26,10 @@ function initialiseMap() {
       	location.lon = parseFloat(this[3]);
         location.cel = this[1];
        	location.dir = this[4];
-        location.wap = this[5];
-        location.map = this[6];
+        location.tie = this[5];
+        location.ran = this[6];
+        location.wap = this[7];
+        location.map = this[8];
 	  		locations.push(location);
     	});
 
@@ -62,10 +64,17 @@ function createMarker(map, location, infowindow) {
     lat: parseFloat(location.lat),
     lng: parseFloat(location.lon)
   };
+  var imgTienda = "https://ekvilibrolab.com/imagen/icons/tienda01.png";
+  var imgPerson = "https://ekvilibrolab.com/imagen/icons/person01.png";
+  var imgekvlab = "https://ekvilibrolab.com/imagen/favicon/android-icon-36x36.png";
+  var imgContainer
+
   var marker = new google.maps.Marker({
     position: position,
     map: map,
     title: location.nombre,
+    //icon: icons[features[i].type].icon
+    icon: ((location.tie == 1)?imgTienda:imgPerson)
   });
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.setContent('<div>'+
