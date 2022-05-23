@@ -57,6 +57,15 @@ function setLocations(map, locations) {
   map.fitBounds(bounds);
 }
 
+function iconoMapa(tipo,rank){ 
+  var i = 1;
+  var icon = (tipo ==1)?"tienda0":"person0"; 
+  if (rank>500)   {i = 2;}
+  if (rank>1000)  {i = 3;}
+  if (rank>10000) {i = 4;}
+  return "https://ekvilibrolab.com/imagen/icons/"+icon+rank+".png";
+}
+
 function createMarker(map, location, infowindow) {
 
   // Modify the code below to suit the structure of your spreadsheet (stored in variable 'location')
@@ -64,17 +73,13 @@ function createMarker(map, location, infowindow) {
     lat: parseFloat(location.lat),
     lng: parseFloat(location.lon)
   };
-  var imgTienda = "https://ekvilibrolab.com/imagen/icons/tienda02.png";
-  var imgPerson = "https://ekvilibrolab.com/imagen/icons/person01.png";
-  var imgekvlab = "https://ekvilibrolab.com/imagen/favicon/android-icon-36x36.png";
-  var imgContainer
 
   var marker = new google.maps.Marker({
     position: position,
     map: map,
     title: location.nombre,
     //icon: icons[features[i].type].icon
-    icon: ((location.tie == 1)?imgTienda:imgPerson)
+    icon: iconoMapa(location.tie,location.ran)
   });
   google.maps.event.addListener(marker, 'click', function() {
     infowindow.setContent('<div>'+
