@@ -63,7 +63,7 @@ function iconoMapa(tipo,rank){
   if (rank>500)   {i = 2;}
   if (rank>1000)  {i = 3;}
   if (rank>10000) {i = 4;}
-  return "https://ekvilibrolab.com/imagen/icons/"+icon+rank+".png";
+  return "https://ekvilibrolab.com/imagen/icons/"+icon+i+".png";
 }
 
 function createMarker(map, location, infowindow) {
