@@ -22,7 +22,7 @@ function initialiseMap() {
     	});
 
       var mapOptions = {
-        zoom: 10,
+        zoom: 11,
         center: new google.maps.LatLng(0, 0)
       };
       var map = new google.maps.Map(document.getElementById('map'), mapOptions);
