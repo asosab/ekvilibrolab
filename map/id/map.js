@@ -1,7 +1,7 @@
 var map;
 var locations = [];
 
-function initialiseMap() {
+async function initialiseMap() {
   var urlParams = new URLSearchParams(window.location.search);
   var id = urlParams.get('id');
   var key = urlParams.get('key'); //'AIzaSyCz2nyy2FyAGVGODM3rqOlDD_bVzwC4iVw';
