@@ -1,7 +1,7 @@
 var map;
 var locations = [];
 
-function initialiseMap() {
+async function initialiseMap() {
   var id = '12AuTzLbbkOj_BQrHi09jJEZaFnThPpn75NJkXaDVivk';
 //var id = '1oByVdWnxXUsAJZ7mAXyNsSljsiL_Cu0aFFyIz8R2myk';
   var llave = 'AIzaSyCz2nyy2FyAGVGODM3rqOlDD_bVzwC4iVw';
