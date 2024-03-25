@@ -125,7 +125,7 @@ function desencriptar(fraseEncriptada) {
 
   const horaActual = new Date().getHours();
   const clave = Math.floor(horaActual / CAMBIO_CLAVE_CADA_HORAS);
-
+console.log("clave:",clave);
   const fraseDesencriptada = fraseEncriptada.split('').map(caracter => {
     const codigoAscii = caracter.charCodeAt(0);
     let inicioCaracteres = CARACTERES_NUMERICOS_INICIALES;
