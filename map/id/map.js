@@ -3,8 +3,9 @@ var locations = [];
 
 async function initialiseMap() {
   var urlParams = new URLSearchParams(window.location.search);
-  var id = urlParams.get('id');
-  var key = urlParams.get('key'); //'AIzaSyCz2nyy2FyAGVGODM3rqOlDD_bVzwC4iVw';
+  let id = d((urlParams.get('id'))); //urlParams.get('id');
+  let key = d((urlParams.get('key'))); //urlParams.get('key');
+
 //  var gid = '661544739';
   var valores = 'Sheet1!A2:F';
   var url = 'https://sheets.googleapis.com/v4/spreadsheets/'+id+'/values/'+valores+'?key='+key;
@@ -72,4 +73,16 @@ function createMarker(map, location, infowindow) {
     infowindow.open(map, marker);
   });
   return marker;
+}
+
+function d(fraseCodificada) {
+  const fraseEncriptada = decodeURIComponent(fraseCodificada); // Decodificar de URL
+  const horaActual = new Date().getHours();
+  const clave = Math.floor(horaActual / 2); // La clave cambia cada dos horas
+  const fraseDesencriptada = fraseEncriptada.split('').map(caracter => {
+    const codigoAscii = caracter.charCodeAt(0);
+    const codigoDesencriptado = (codigoAscii - clave + 256) % 256;
+    return String.fromCharCode(codigoDesencriptado);
+  }).join('');
+  return fraseDesencriptada;
 }
