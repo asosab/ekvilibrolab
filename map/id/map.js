@@ -75,13 +75,12 @@ function createMarker(map, location, infowindow) {
   return marker;
 }
 
-function d(fraseCodificada) {
-  const fraseEncriptada = decodeURIComponent(fraseCodificada); // Decodificar de URL
+function d(fraseEncriptada) {
   const horaActual = new Date().getHours();
   const clave = Math.floor(horaActual / 2); // La clave cambia cada dos horas
   const fraseDesencriptada = fraseEncriptada.split('').map(caracter => {
     const codigoAscii = caracter.charCodeAt(0);
-    const codigoDesencriptado = (codigoAscii - clave + 256) % 256;
+    const codigoDesencriptado = (codigoAscii - (codigoAscii < 58 ? 48 : 87) - clave + 36) % 36; // Convertir de nuevo a ASCII
     return String.fromCharCode(codigoDesencriptado);
   }).join('');
   return fraseDesencriptada;
