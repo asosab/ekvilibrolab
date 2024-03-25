@@ -40,9 +40,6 @@ async function initialiseMap() {
       throw new Error("ID o clave no proporcionados en la URL");
     }
 
-    id = await desencriptar(id);
-    key = await desencriptar(key);
-
     var valores = 'Sheet1!A2:F';
     var url = 'https://sheets.googleapis.com/v4/spreadsheets/' + id + '/values/' + valores + '?key=' + key;
 
@@ -116,22 +113,3 @@ function createMarker(map, location, infowindow) {
   return marker;
 }
 
-function desencriptar(fraseEncriptada) {
-    // Obtenemos la hora actual en milisegundos
-    var horaActual = new Date().getTime();
-    
-    // Convertimos la frase en un array de caracteres
-    var caracteres = fraseEncriptada.split('');
-    
-    // Recorremos cada carácter y aplicamos el descifrado
-    for (var i = 0; i < caracteres.length; i++) {
-        var codigo = caracteres[i].charCodeAt(0); // Obtenemos el código ASCII del carácter
-        
-        // Restamos la hora actual al código ASCII para deshacer el cifrado
-        // (se debe usar el mismo algoritmo de cifrado utilizado en la función encriptar)
-        caracteres[i] = String.fromCharCode(codigo - horaActual);
-    }
-    
-    // Convertimos el array de caracteres de vuelta a una cadena y la retornamos
-    return caracteres.join('');
-}
