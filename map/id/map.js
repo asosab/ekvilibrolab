@@ -1,35 +1,6 @@
 var map;
 var locations = [];
 
-async function initialiseMap2() {
-  var urlParams = new URLSearchParams(window.location.search);
-  let id = desencriptar((urlParams.get('id'))); //urlParams.get('id');
-  let key = desencriptar((urlParams.get('key'))); //urlParams.get('key');
-
-//  var gid = '661544739';
-  var valores = 'Sheet1!A2:F';
-  var url = 'https://sheets.googleapis.com/v4/spreadsheets/'+id+'/values/'+valores+'?key='+key;
-  $.getJSON(url, function(data) {
-    	$(data.values).each(function() {
-    		var location = {};
-				location.nombre = this[0];
-				location.lat = parseFloat(this[1]);
-      	location.lon = parseFloat(this[2]);
-       	location.dir = this[3];
-        location.URL = this[4];
-        location.des = this[5];
-	  		locations.push(location);
-    	});
-
-      var mapOptions = {
-        zoom: 11,
-        center: new google.maps.LatLng(0, 0)
-      };
-      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-      setLocations(map, locations);
-  });
-}
-
 async function initialiseMap() {
   try {
     var urlParams = new URLSearchParams(window.location.search);
