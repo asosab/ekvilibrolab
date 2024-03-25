@@ -116,18 +116,27 @@ function createMarker(map, location, infowindow) {
   return marker;
 }
 
-async function desencriptar(fraseEncriptada) {
+function desencriptar(fraseEncriptada) {
   const CARACTERES_ALFANUMERICOS = 36;
   const CARACTERES_NUMERICOS_INICIALES = 48;
-  const CARACTERES_MINUSCULAS_INICIALES = 87;
+  const CARACTERES_MINUSCULAS_INICIALES = 97; // Cambiado a 97
+
   const CAMBIO_CLAVE_CADA_HORAS = 2;
 
   const horaActual = new Date().getHours();
   const clave = Math.floor(horaActual / CAMBIO_CLAVE_CADA_HORAS);
+
   const fraseDesencriptada = fraseEncriptada.split('').map(caracter => {
     const codigoAscii = caracter.charCodeAt(0);
-    const codigoDesencriptado = (codigoAscii - (codigoAscii < 58 ? CARACTERES_NUMERICOS_INICIALES : CARACTERES_MINUSCULAS_INICIALES) - clave + CARACTERES_ALFANUMERICOS) % CARACTERES_ALFANUMERICOS;
-    return String.fromCharCode(codigoDesencriptado);
+    let inicioCaracteres = CARACTERES_NUMERICOS_INICIALES;
+    
+    if (codigoAscii >= CARACTERES_MINUSCULAS_INICIALES) {
+      inicioCaracteres = CARACTERES_MINUSCULAS_INICIALES;
+    }
+
+    const codigoDesencriptado = (codigoAscii - inicioCaracteres - clave + CARACTERES_ALFANUMERICOS) % CARACTERES_ALFANUMERICOS;
+    return String.fromCharCode(codigoDesencriptado + (codigoDesencriptado < 10 ? CARACTERES_NUMERICOS_INICIALES : CARACTERES_MINUSCULAS_INICIALES));
   }).join('');
+
   return fraseDesencriptada;
 }
