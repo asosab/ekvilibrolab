@@ -117,26 +117,21 @@ function createMarker(map, location, infowindow) {
 }
 
 function desencriptar(fraseEncriptada) {
-  const CARACTERES_ALFANUMERICOS = 36;
-  const CARACTERES_NUMERICOS_INICIALES = 48;
-  const CARACTERES_MINUSCULAS_INICIALES = 97; // Cambiado a 97
-
-  const CAMBIO_CLAVE_CADA_HORAS = 2;
-
-  const horaActual = new Date().getHours();
-  const clave = Math.floor(horaActual / CAMBIO_CLAVE_CADA_HORAS);
-console.log("clave:",clave);
-  const fraseDesencriptada = fraseEncriptada.split('').map(caracter => {
-    const codigoAscii = caracter.charCodeAt(0);
-    let inicioCaracteres = CARACTERES_NUMERICOS_INICIALES;
+    // Obtenemos la hora actual en milisegundos
+    var horaActual = new Date().getTime();
     
-    if (codigoAscii >= CARACTERES_MINUSCULAS_INICIALES) {
-      inicioCaracteres = CARACTERES_MINUSCULAS_INICIALES;
+    // Convertimos la frase en un array de caracteres
+    var caracteres = fraseEncriptada.split('');
+    
+    // Recorremos cada carácter y aplicamos el descifrado
+    for (var i = 0; i < caracteres.length; i++) {
+        var codigo = caracteres[i].charCodeAt(0); // Obtenemos el código ASCII del carácter
+        
+        // Restamos la hora actual al código ASCII para deshacer el cifrado
+        // (se debe usar el mismo algoritmo de cifrado utilizado en la función encriptar)
+        caracteres[i] = String.fromCharCode(codigo - horaActual);
     }
-
-    const codigoDesencriptado = (codigoAscii - inicioCaracteres - clave + CARACTERES_ALFANUMERICOS) % CARACTERES_ALFANUMERICOS;
-    return String.fromCharCode(codigoDesencriptado + (codigoDesencriptado < 10 ? CARACTERES_NUMERICOS_INICIALES : CARACTERES_MINUSCULAS_INICIALES));
-  }).join('');
-
-  return fraseDesencriptada;
+    
+    // Convertimos el array de caracteres de vuelta a una cadena y la retornamos
+    return caracteres.join('');
 }
