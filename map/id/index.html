@@ -38,6 +38,8 @@
 </head>
 <body>
   <div id="mapid"></div> <!-- Div donde se mostrará el mapa -->
+  <div id="loading-indicator">Cargando...</div>
+
   <script>
     var map;
     var locations = [];
@@ -52,7 +54,13 @@
     var valores = 'Sheet1!A2:F';
     var url = 'https://sheets.googleapis.com/v4/spreadsheets/' + id + '/values/' + valores + '?key=' + key;
 
+    // Mostrar indicador de carga
+    $('#loading-indicator').show();
+
     $.getJSON(url, function (data) {
+      // Ocultar indicador de carga una vez que se hayan cargado los datos
+      $('#loading-indicator').hide();
+
       $(data.values).each(function () {
         var location = {};
         location.nombre = this[0];
@@ -86,6 +94,7 @@
       });
     });
   </script>
+
 
 </body>
 </html>
