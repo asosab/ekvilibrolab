@@ -57,23 +57,12 @@
         var location = {};
         location.nombre = this[0];
         location.lat = parseFloat(this[1]);
-        location.lon = parseFloat(this[2]);
+        location.lng = parseFloat(this[2]);
         location.dir = this[3];
         location.URL = this[4];
         location.des = this[5];
         locations.push(location);
       });
-
-
-
-
-    // Datos de ejemplo
-    var datos = [
-      { lat: 40.7128, lng: -74.0060, nombre: "Nueva York" },
-      { lat: 34.0522, lng: -118.2437, nombre: "Los Ángeles" },
-      { lat: 41.8781, lng: -87.6298, nombre: "Chicago" }
-      // Puedes añadir más datos según sea necesario
-    ];
 
     // Crear el mapa
     var mymap = L.map('mapid').setView([40.7128, -74.0060], 4); // Punto de inicio y nivel de zoom
