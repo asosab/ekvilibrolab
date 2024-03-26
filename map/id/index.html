@@ -79,7 +79,7 @@
       });
 
       // Crear el mapa
-      var mymap = L.map('mapid').setView([-17.783303802947064, -63.18212050179502], 10); // Punto de inicio y nivel de zoom
+      var mymap = L.map('mapid'); // No establezcas una vista inicial aquí
 
       // Añadir capa de OpenStreetMap al mapa
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -98,6 +98,12 @@
         
         marker.bindPopup(popupContent);
       });
+
+      // Ajustar el mapa para que todos los marcadores sean visibles
+      var group = new L.featureGroup(locations.map(function(location) {
+        return L.marker([location.lat, location.lng]);
+      }));
+      mymap.fitBounds(group.getBounds());
     });
   </script>
 
