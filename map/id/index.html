@@ -1,49 +1,93 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Immobilis - Búsqueda</title>
+<html lang="es">
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <!-- generado con https://www.favicon-generator.org/ -->
+  <link rel="apple-touch-icon" sizes="57x57" href="../../imagen/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../../imagen/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../../imagen/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../imagen/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../../imagen/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../../imagen/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../../imagen/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../../imagen/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../imagen/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="../../imagen/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../imagen/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../imagen/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../imagen/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../../imagen/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="../../imagen/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
 
-    <!-- generado con https://www.favicon-generator.org/ -->
-    <link rel="apple-touch-icon" sizes="57x57" href="../../imagen/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="../../imagen/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="../../imagen/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="../../imagen/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="../../imagen/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="../../imagen/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="../../imagen/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="../../imagen/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../../imagen/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="../../imagen/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../imagen/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="../../imagen/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../imagen/favicon/favicon-16x16.png">
-    <link rel="manifest" href="../../imagen/favicon/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="../../imagen/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-
-    <meta name="title" content="Immobilis - Búsqueda">
-
-    <link rel="stylesheet" href="map.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Immobilis - Búsqueda</title>
+  <!-- Enlaces a las bibliotecas de Leaflet y OpenStreetMap -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <style>
+    /* Estilo básico para el mapa */
+    #mapid {
+      height: 400px;
+    }
+  </style>
 </head>
-
 <body>
+  <div id="mapid"></div> <!-- Div donde se mostrará el mapa -->
+  <script>
+    var map;
+    var locations = [];
+    var urlParams = new URLSearchParams(window.location.search);
+    let id = urlParams.get('id');
+    let key = urlParams.get('key');
 
-<script src="map.js"></script>
+    if (!id || !key) {
+      throw new Error("ID o clave no proporcionados en la URL");
+    }
 
-<div id="map"></div>
+    var valores = 'Sheet1!A2:F';
+    var url = 'https://sheets.googleapis.com/v4/spreadsheets/' + id + '/values/' + valores + '?key=' + key;
 
-<script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCz2nyy2FyAGVGODM3rqOlDD_bVzwC4iVw&callback=initialiseMap">
-</script>
+    $.getJSON(url, function (data) {
+      $(data.values).each(function () {
+        var location = {};
+        location.nombre = this[0];
+        location.lat = parseFloat(this[1]);
+        location.lon = parseFloat(this[2]);
+        location.dir = this[3];
+        location.URL = this[4];
+        location.des = this[5];
+        locations.push(location);
+      });
 
 
-<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
+
+    // Datos de ejemplo
+    var datos = [
+      { lat: 40.7128, lng: -74.0060, nombre: "Nueva York" },
+      { lat: 34.0522, lng: -118.2437, nombre: "Los Ángeles" },
+      { lat: 41.8781, lng: -87.6298, nombre: "Chicago" }
+      // Puedes añadir más datos según sea necesario
+    ];
+
+    // Crear el mapa
+    var mymap = L.map('mapid').setView([40.7128, -74.0060], 4); // Punto de inicio y nivel de zoom
+
+    // Añadir capa de OpenStreetMap al mapa
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(mymap);
+
+    // Iterar sobre los datos y añadir marcadores al mapa
+    locations.forEach(function(dato) {
+      L.marker([dato.lat, dato.lng]).addTo(mymap)
+        .bindPopup(dato.nombre); // Mostrar el nombre como pop-up al hacer clic en el marcador
+    });
+  </script>
 </body>
 </html>
