@@ -104,6 +104,20 @@
         return L.marker([location.lat, location.lng]);
       }));
       mymap.fitBounds(group.getBounds());
+
+      var lat = urlParams.get('lat');
+      var lng = urlParams.get('lng');
+      var circleCenter = L.latLng(lat, lng);
+      var radius = urlParams.get('r');
+      var circle = L.circle(circleCenter, {
+        color: 'green',
+        weight: 1, // Grosor del borde
+        fillOpacity: 0, // Sin relleno
+        radius: radius
+      }).addTo(mymap);
+
+
+
     });
   </script>
 
