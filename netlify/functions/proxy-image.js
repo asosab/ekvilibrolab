@@ -1,5 +1,5 @@
 // netlify/functions/proxy-image.js
-import fetch from "node-fetch";
+//import fetch from "node-fetch";
 
 /**
  * Proxy de imágenes: recibe ?url=... y devuelve la imagen remota
